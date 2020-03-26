@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh and Delicious</title>
+    <script src="https://kit.fontawesome.com/df859bf4c5.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin-top: 50px;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: auto;
+            position: relative;
+        }
+
+        .head {
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .tex {
+            width: 55%;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 330px;
+            top: 20px;
+            bottom: 0px;
+            padding: 20px;
+            left: 460px;
+            font-family: 微軟正黑體;
+            padding: 5px
+        }
+
+        .button {
+            font-family: 微軟正黑體;
+            font-weight: bolder;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 25px;
+            background-color: black;
+            vertical-align: middle;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            line-height: 40px;
+            position: absolute;
+            top: 550px;
+            right: 170px;
+
+
+        }
+
+        .pic {
+            widows: 30%;
+            position: relative;
+            right: 300px;
+
+
+        }
+
+        .head img {
+            width: 100%;
+        }
+
+        .body {
+            width: 1800px;
+        }
+
+        .dvc {
+
+            width: 2000px;
+            /* right: 600px; */
+            display: flex;
+            position: absolute;
+            /* padding: 20px; */
+            margin-left: 20px;
+            left: -200px;
+            font-size: 40px;
+            top: 580px;
+            /* background-color: aqua; */
+            z-index: 3;
+        }
+
+        .dvc img {
+            width: 300px;
+            padding: 20px;
+            position: relative;
+            right: 100px;
+            top: 200px;
+            z-index: -5;
+            /* background-color: blue; */
+
+        }
+
+        .dvc div p {
+            /* background-color: burlywood; */
+            position: relative;
+            top: 20px;
+            text-align: center;
+            padding-right: 100px;
+            right: 50px;
+
+        }
+
+        .three {
+            display: flex;
+            justify-content: center;
+            margin-top: 400px;
+            /* background-color:red; */
+
+
+        }
+
+        .left {
+            padding-right: 30px;
+        }
+
+        .left h3 {
+            position: absolute;
+            color: #ffffff;
+            font-size: 40px;
+            padding: 20px;
+            top: 1700px;
+            z-index: 1;
+        }
+
+        .left p {
+            position: absolute;
+            color: #ffffff;
+            top: 1820px;
+            left: 450px;
+            border-bottom: solid 1px;
+        }
+
+        .crazy {
+            width: 570px;
+            height: 350px;
+            position: relative;
+        }
+
+        .hurry {
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .shop_tex {
+            position: absolute;
+            top: 100px;
+            color: #ffffff;
+            z-index: 5;
+            margin-left: 30px;
+        }
+
+        .shop_tex h4 {
+            border-bottom: #ffffff 2px;
+        }
+
+        .crazy_tex {
+            position: absolute;
+            top: 500px
+        }
+
+        .crazy::before {
+
+            content: 'CRAZY PRICE $2.99';
+            position: absolute;
+            top: 230px;
+            color: #ffffff;
+            font-size: 36px;
+            margin-left: 30px;
+            font-weight: bold;
+        }
+
+        .crazy::after {
+            content: 'Shop now';
+            position: absolute;
+            color: #ffffff;
+            top: 300px;
+            border-bottom: solid 0.5px #ffffff;
+            margin-left: 30px;
+        }
+
+        .shopitem {
+            display: flex;
+
+        }
+
+        .shop_item {
+            width: 1200px;
+            display: flex;
+            /* background-color: teal; */
+            margin: auto;
+            flex-direction: column;
+        }
+
+        .tablic_head {
+            /* background-color: royalblue; */
+            margin: auto;
+            line-height: 80px;
+            font-weight: bolder;
+        }
+
+        .table_pic img {
+            background-color: #dcdcdc;
+
+        }
+
+        /* .shop_tex
+{
+    flex-direction: column;
+} */
+        .table_pic {
+            justify-content: space-around;
+            display: flex;
+            /* background-color: sandybrown; */
+        }
+
+        .money {
+            display: flex;
+            font-size: 21px;
+        }
+
+        .button_shop {
+            display: flex;
+            border: 1px solid black;
+            width: 150px;
+            height: 40px;
+            border-radius: 3px;
+            justify-content: center;
+            align-items: center;
+            /* margin-left: 10px;
+    */
+
+        }
+
+
+        .two_button {
+            display: flex;
+            margin: auto;
+            /* position:absolute */
+        }
+
+        .blueberry {
+            display: flex;
+            /* background-color: blueviolet; */
+            margin-top: 100px;
+        }
+
+        .blue_left {
+            padding: 70px;
+            height: 300px;
+            margin-left: 10px;
+            background-color: #fff;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .blue_right {
+            z-index: 0;
+            margin-left: 290px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .blue_button {
+
+            font-weight: bold;
+            border-radius: 3px;
+            padding: 15px;
+            padding-left: 40px;
+            padding-right: 40px;
+            background-color: #ffe605;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .somthing {
+            margin-top: 60px;
+            display: flex;
+        }
+
+        .som_left {
+            margin-left: 40px;
+        }
+
+        .som_left_head {
+
+            justify-content: center;
+            text-align: center;
+        }
+
+        .som_left_pic {
+            /* width: 600px; */
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            /* background-color: aqua; */
+        }
+
+        .som_left_pic img {
+            width: 100%;
+        }
+
+
+        .som_proud_item {
+
+            margin-top: 35px;
+        }
+
+        .som_button_shop a {
+            border: solid 1px #000000;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size: 13px;
+            border-radius: 3px;
+
+        }
+
+        .som_right_tex {
+            font-size: 43px;
+            color: #fff;
+            /* background-color: aqua; */
+            position: absolute;
+            top: 3800px;
+            margin-left: 50px;
+        }
+
+        .som_right_button a {
+            color: #fff;
+            /* background-color: antiquewhite; */
+            border-bottom: solid 1px #fff;
+            font-size: 30px;
+            position: absolute;
+            top: 3950px;
+            margin-left: 50px;
+
+        }
+
+        .Posts {
+            margin-top: 120px;
+        }
+
+        .posts_body {
+            display: flex;
+            margin: auto;
+            width: 1200px;
+            /* background-color: aquamarine; */
+        }
+
+        .posts_tex p {
+            width: 350px;
+            flex-wrap: wrap;
+            /* background-color: blue; */
+        }
+
+        .text_touch a:hover {
+            color: #e5cf04;
+        }
+
+        .posts_item {
+            margin: auto
+        }
+
+
+        .text_touch a {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        ul li {
+            list-style-type: none;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .foot {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            /* width: 1100px; */
+            background-color: #f0f0f0;
+            font-family: 微軟正黑體;
+        }
+
+        .foot_item {
+            width: 200px;
+            /* background-color: blueviolet; */
+            margin-left: 200px;
+
+        }
+
+        .foot_tex_title {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        .foot
+        {
+            padding-top: 60px;
+            margin-top: 30px;
+        }
+
+        ul li :hover {
+            color: #e5cf04;
+        }
+
+        .foot_tex_add {
+            padding-bottom: 15px;
+        }
+
+        .foot_tex_add {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+       
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="head">
+            <div class="pic">
+                <img src="標題.webp" alt="覆盆子">
+            </div>
+            <div class="tex">
+                <h3 style="font-size:">Fresh and <br> Delicious</h3>
+                <p style="color:#ffe605;font-size: 50px;">ALL YEAR <br> ROUND!</p>
+            </div>
+            <div class="button">
+                <div>READ MORE</div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="dvc">
+                <div><img src="fresh fruits.webp" alt="fresh fruits">
+                    <p>fresh fruits</p>
+                </div>
+                <div><img src="veggis.webp" alt="veggis">
+                    <p>veggis</p>
+                </div>
+                <div class="fish"><img src="fish.webp" alt="fish">
+                    <p>fish</p>
+                </div>
+                <div><img src="seeds.webp" alt="seeds">
+                    <p>seeds</p>
+                </div>
+                <div><img src="bread.webp" alt="bread">
+                    <p>bread</p>
+                </div>
+                <div><img src="dairy.png" alt="dairy">
+                    <p>dairy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="three">
+        <div class="left">
+
+            <img src="best.webp" alt="">
+            <h3>Best Quality Products</h3>
+            <p>Shop now</p>
+        </div>
+        <div class="right">
+            <div class="crazy">
+                <img src="2.99.webp" alt="">
+                <h3 style="font-size: 36px;">Hot Deals CRAZYPRICE $2.99</h3>
+                <p style="font-size: 20px;">Shop now</p>
+            </div>
+
+
+            <div class="hurry">
+                <img src="hurry up.webp" alt="">
+                <div class="shop_tex">
+                    <h3 style="font-size:36px;">HURRY UP!</h3>
+                    <p style="font-size: 15px;">Donn't misss your chance to be the first!</p>
+                    <br>
+                    <p style="width: 70px; border-bottom: solid 1px #ffff;">Shop now</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="shop_item">
+        <div class="tablic_head" style="font-size:24px;">
+            <p>Featured Products</p>
+        </div>
+
+        <div class="table_pic">
+            <div class="proud_item">
+                <img src="asset 9.png" alt="">
+                <div class="shop-tex">
+                    <a style="font-size: 15px;"> Foods Formulated</a></div>
+                <div class="money" style="font-size: 20px;">
+                    <p style="padding-right:20px;">
+                        <span style="text-decoration:line-through; color: #888888;">$26.0</span>
+                        <p>$20.0</p>
+                </div>
+                <div class="shopitem">
+                    <div class="button_shop">
+
+                        <a href="#" style="display: flex;">
+                            <p><i class="fas fa-shopping-cart"></i>ADD TO CART</p>
+                        </a>
+                    </div>
+                    <div class="two_button">
+                        <div class="eye_button" style="border: 1px solid black; padding: 10px;
+                        border-radius:3px;margin-left: 5px;">
+
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="fas_button" style="border: 1px solid black; padding: 10px;margin-left: 5px;
+                        border-radius:3px;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proud_item">
+                <img src="asset 10.png" alt="">
+                <div class="shop-tex">
+                    <a style="font-size: 15px;"> Foods Formulated</a></div>
+                <div class="money" style="font-size: 20px;">
+                    <p style="padding-right:20px;">
+
+                        <p>$29.00-$36.00</p>
+                </div>
+                <div class="shopitem">
+                    <div class="button_shop">
+
+                        <a href="#" style="display: flex;">
+                            <p><i class="fas fa-shopping-cart"></i>ADD TO CART</p>
+                        </a>
+                    </div>
+                    <div class="two_button">
+                        <div class="eye_button" style="border: 1px solid black; padding: 10px;
+                            border-radius:3px;margin-left: 5px;">
+
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="fas_button" style="border: 1px solid black; padding: 10px;margin-left: 5px;
+                            border-radius:3px;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="proud_item">
+                <img src="asset 11.png" alt="">
+                <div class="shop-tex">
+                    <a style="font-size: 15px;"> Foods Formulated</a></div>
+                <div class="money" style="font-size: 20px;">
+                    <p style="padding-right:20px;">
+
+                        <p>$12.00-$30.0</p>
+                </div>
+                <div class="shopitem">
+                    <div class="button_shop">
+
+                        <a href="#" style="display: flex;">
+                            <p><i class="fas fa-shopping-cart"></i>ADD TO CART</p>
+                        </a>
+                    </div>
+                    <div class="two_button">
+                        <div class="eye_button" style="border: 1px solid black; padding: 10px;
+                                border-radius:3px;margin-left: 5px;">
+
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="fas_button" style="border: 1px solid black; padding: 10px;margin-left: 5px;
+                                border-radius:3px;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="proud_item">
+                <img src="asset 12.png" alt="">
+                <div class="shop-tex">
+                    <a style="font-size: 15px;"> Foods Formulated</a></div>
+                <div class="money" style="font-size: 20px;">
+                    <p style="padding-right:20px;">
+                        <span style="text-decoration:line-through; color: #888888;">$33.0</span>
+                        <p>$22.0</p>
+                </div>
+                <div class="shopitem">
+                    <div class="button_shop">
+
+                        <a href="#" style="display: flex;">
+                            <p><i class="fas fa-shopping-cart"></i>ADD TO CART</p>
+                        </a>
+                    </div>
+                    <div class="two_button">
+                        <div class="eye_button" style="border: 1px solid black; padding: 10px;
+                                    border-radius:3px;margin-left: 5px;">
+
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="fas_button" style="border: 1px solid black; padding: 10px;margin-left: 5px;
+                                    border-radius:3px;">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="blueberry">
+
+            <div class="blue_left">
+                <div class="blue_tex" style="text-align: center; line-height: 50px;">
+                    <h1 style="font-size: 80px;">20%OFF</h1>
+                    <h1 style="font-size: 80px;font-weight: normal; font-family: 微軟正黑體;">Frech Berris</h1>
+                    <button class="blue_button"><a href="#">SHOP NOW</a></button>
+                </div>
+            </div>
+            <div class="blue_right">
+                <img src="asset 40.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="somthing" style="padding-bottom: 0;">
+            <div class="som_right">
+                <img src="asset 59.png" alt="">
+                <div class="som_right_tex">
+                    Looking for something <br> special?
+                </div>
+                <div class="som_right_button">
+                    <a href="#">Shop now</a>
+                </div>
+            </div>
+            <div class="som_left">
+                <div class="som_left_head">
+                    <h3>On Sale</h3>
+                </div>
+                <div class="som_left_pic">
+                    <div class="som_proud_item">
+                        <img src="asset 41.png" alt="" style="background-color: #dcdcdc;">
+                        <div class="shop-tex">
+                            <a style="font-size: 15px;"> Foods Formulated</a></div>
+                        <div class="money" style="font-size: 20px;">
+                            <p style="padding-right:20px;">
+                                <span style="text-decoration:line-through; color: #888888;">$26.0</span>
+                                <p>$20.0</p>
+                        </div>
+                        <div class="shopitem">
+                            <div class="som_button_shop">
+
+                                <a href="#" style="display: flex;">
+                                    <p><i class="fas fa-shopping-cart"></i>CHOOSE VARIANTRT</p>
+                                </a>
+                            </div>
+                            <div class="two_button">
+                                <div class="eye_button" style="border: 1px solid black; padding: 12px;
+                                border-radius:3px;margin-left: 5px;">
+
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="fas_button" style="border: 1px solid black; padding: 12px;margin-left: 5px;
+                                border-radius:3px;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="som_proud_item" style="margin-left: 50px;">
+                        <img src="asset 43.png" alt="" style="background-color: #dcdcdc;">
+                        <div class="shop-tex">
+                            <a style="font-size: 15px;"> Foods Formulated</a></div>
+                        <div class="money" style="font-size: 20px;">
+                            <p style="padding-right:20px;">
+                                <span style="text-decoration:line-through; color: #888888;">$26.0</span>
+                                <p>$20.0</p>
+                        </div>
+                        <div class="shopitem">
+                            <div class="som_button_shop">
+
+                                <a href="#" style="display: flex;">
+                                    <p><i class="fas fa-shopping-cart"></i>CHOOSE VARIANTRT</p>
+                                </a>
+                            </div>
+                            <div class="two_button">
+                                <div class="eye_button" style="border: 1px solid black; padding: 12px;
+                                border-radius:3px;margin-left: 5px;">
+
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="fas_button" style="border: 1px solid black; padding: 12px;margin-left: 5px;
+                                border-radius:3px;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="som_proud_item">
+                        <img src="asset 45.png" alt="" style="background-color: #dcdcdc;">
+                        <div class="shop-tex">
+                            <a style="font-size: 15px;"> Foods Formulated</a></div>
+                        <div class="money" style="font-size: 20px;">
+                            <p style="padding-right:20px;">
+                                <span style="text-decoration:line-through; color: #888888;">$26.0</span>
+                                <p>$20.0</p>
+                        </div>
+                        <div class="shopitem">
+                            <div class="som_button_shop">
+
+                                <a href="#" style="display: flex;">
+                                    <p><i class="fas fa-shopping-cart"></i>CHOOSE VARIANTRT</p>
+                                </a>
+                            </div>
+                            <div class="two_button">
+                                <div class="eye_button" style="border: 1px solid black; padding: 12px;
+                                border-radius:3px;margin-left: 5px;">
+
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="fas_button" style="border: 1px solid black; padding: 12px;margin-left: 5px;
+                                border-radius:3px;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="som_proud_item" style="margin-left: 50px;">
+                        <img src="asset 47.png" alt="" style="background-color: #dcdcdc; ">
+                        <div class="shop-tex">
+                            <a style="font-size: 15px;"> Foods Formulated</a></div>
+                        <div class="money" style="font-size: 20px;">
+                            <p style="padding-right:20px;">
+                                <span style="text-decoration:line-through; color: #888888;">$26.0</span>
+                                <p>$20.0</p>
+                        </div>
+                        <div class="shopitem">
+                            <div class="som_button_shop">
+
+                                <a href="#" style="display: flex;">
+                                    <p><i class="fas fa-shopping-cart"></i>CHOOSE VARIANTRT</p>
+                                </a>
+                            </div>
+                            <div class="two_button">
+                                <div class="eye_button" style="border: 1px solid black; padding: 12px;
+                                border-radius:3px;margin-left: 5px;">
+
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="fas_button" style="border: 1px solid black; padding: 12px;margin-left: 5px;
+                                border-radius:3px;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="Posts">
+        <div class="posts_head" style="text-align: center; margin-bottom: 40px; ">
+            <h1>Featured Posts</h1>
+        </div>
+        <div class="posts_body">
+            <div class="posts_item">
+                <div class="posts_pic">
+                    <img src="asset 6.png" alt="">
+                </div>
+                <div class="posts_tex">
+                    <p>29 January</p>
+                    <div class="text_touch">
+                        <span style="font-size: 20px;"></span><a href="#">12 Heavenly Fruits and Honey</a></span></div>
+                    <p>Caffeine and sugar may give you an energy spike, but the crash that follows will leave you
+                        feeling even more tired than before. However, great...</p>
+
+                </div>
+            </div>
+
+            <div class="posts_item">
+                <div class="posts_pic" style="padding-top: 20px;">
+                    <img src="asset 7.png" alt="">
+                </div>
+                <div class="posts_tex">
+                    <p>29 January</p>
+                    <div class="text_touch">
+                        <span style="font-size: 20px;"></span><a href="#">The Great Start of Your Weight</a></span>
+                    </div>
+                    <p>Kids need energy for sports and play, so it’s important that they’re consuming a nutrient-dense
+                        snack about an hour before their activity that contains carbohydrates....</p>
+
+                </div>
+            </div>
+
+            <div class="posts_item">
+                <div class="posts_pic">
+                    <img src="asset 8.png" alt="">
+                </div>
+                <div class="posts_tex">
+                    <p>29 January</p>
+                    <div class="text_touch">
+                        <span></span><a href="#">The Products that Help You Boost the Energy</a></span></div>
+                    <p>Caffeine and sugar may give you an energy spike, but the crash that follows will leave you
+                        feeling even more tired than before. However, great...</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="foot_body_item"></div>
+        <div class="foot_item" style="margin-left:0 ; ">
+            <div class="foot_tex_title" ;>Information</div>
+            <ul>
+                <li> <a href="#"> Home</a></li>
+                <li> <a href="#"> Services</a></li>
+                <li> <a href="#">Blog</a> </li>
+                <li> <a href="#">About Us</a> </li>
+                <li> <a href="#">Contact Us</a> </li>
+            </ul>
+        </div>
+
+        <div class="foot_item">
+            <div class="foot_tex_title">My Account</div>
+            <ul>
+                <li> <a href="#"> My Account</a></li>
+                <li> <a href="#"> Order History </a></li>
+                <li> <a href="#">Addresses </a> </li>
+                <li> <a href="#">Wishlist </a> </li>
+            </ul>
+        </div>
+
+        <div class="foot_item">
+            <div class="foot_tex_add">Our Shop</div>
+            <div style="padding-bottom: 15px;">Address</div>
+            <address>
+                4578 Marmora St, San Francisco D04 89GR
+            </address>
+            <span class="phone">
+                <p>Phone</p>
+                <p>1-800-1234-567</p>
+            </span>
+        </div>
+
+
+
+        <div class="foot_item" style="margin-bottom: 5px;">
+            <div class="foot_tex_add">Newsletter</div>
+            <label > 
+                Join our mailing list：
+                <br>
+                <input type="email" id =""name="" style="margin-top: 10px;">
+                <i class="fas fa-paper-plane"></i>
+             </label> 
+         </p>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
