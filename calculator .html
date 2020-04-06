@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: auto;
+            margin-top: 160px;
+        }
+
+
+        input {
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            border-radius: 5px;
+            border: 0px;
+            background-color: #ccc;
+            font-size: 20px;
+            
+        }
+        #box{
+            background-color: #000;
+            width: 412px;
+            color: #fff;
+        }
+        #zero{
+            width: 205px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="6"><input type="text" value="0" id="box" ></td>
+        </tr>
+        <tr>
+            <td><input type="bttton" value="AC" onclick="Ac_btn()"></td>
+            <td><input type="bttton" value="+/-" onclick="btn('+/-')"></td>
+            <td><input type="bttton" value="%" onclick="numbtn('%')"></td>
+            <td><input type="bttton" value="/" onclick="numbtn('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="numbtn('7')"></td>
+            <td><input type="button" value="8" onclick="numbtn('8')"></td>
+            <td><input type="button" value="9" onclick="numbtn('9')"></td>
+            <td><input type="button" value="*" onclick="numbtn('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="numbtn('4')"></td>
+            <td><input type="button" value="5" onclick="numbtn('5')"></td>
+            <td><input type="button" value="6" onclick="numbtn('6')"></td>
+            <td><input type="button" value="-" onclick="numbtn('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="numbtn('1')"></td>
+            <td><input type="button" value="2" onclick="numbtn('2')"></td>
+            <td><input type="button" value="3" onclick="numbtn('3')"></td>
+            <td><input type="button" value="+" onclick="numbtn('+')"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input id="zero" type="button" value="0" onclick="numbtn('0')" ></td>
+            <td><input type="button" value="." onclick="numbtn('.')"></td>
+            <td><input type="button" value="=" onclick="equle()"></td>
+
+        </tr>
+    </table>
+
+    <script>
+        var temp; //暫存運算數
+        var strOper;//暫存符號
+
+
+
+        function numbtn(str) {
+            if (strOper == null) {
+                document.getElementById('box').value = str;
+                strOper = 0;
+                console.log(strOper);
+                return;
+            };
+
+            if (document.getElementById('box').value == 0) {
+                document.getElementById('box').value = str;
+            }
+            else {
+                document.getElementById('box').value += str;
+            }
+        }
+
+        function btn_(str) {
+            //不按等號的連續運算
+
+            var valueA = document.getElementById('box').value;
+            equle();
+            strOper = str;
+            document.getElementById('box').value = 0;
+
+        }
+
+        function equle() {
+            var ans = document.getElementById('box').value;
+            document.getElementById('box').value = eval(ans);
+        }
+
+        // function equle()
+        // {
+        //     switch(strOper){
+        //     case '+':
+        //     document.getElementById('box').value=parseFloat(valueA)+parseFloat(document.getElementById('box').value);
+        //     break;
+        //     case '-':
+        //     document.getElementById('box').value=parseFloat(valueA)-parseFloat(document.getElementById('box').value);
+        //     break;
+        //     case '*':
+        //     document.getElementById('box').value=parseFloat(valueA)*parseFloat(document.getElementById('box').value);
+        //     break;
+        //     case '/':
+        //     document.getElementById('box').value=parseFloat(valueA)/parseFloat(document.getElementById('box').value);
+        //     break;
+        //     }
+        // }
+
+        function Ac_btn() {
+            temp = 0;
+            strOper = 0;
+            document.getElementById('box').value = temp;
+         
+        }
+    </script>
+
+</body>
+
+</html>
