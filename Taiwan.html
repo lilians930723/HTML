@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../modules/Myhelps.js"></script>
+
+</head>
+
+<body>
+    <div id="msg"></div>
+    <table>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <template id="templateTitle">
+        <tr>
+            <th>城市</th>
+            <th>區域</th>
+            <th>區號</th>
+        </tr>
+    </template>
+    <template id="templateBody">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+    <script>
+        let msg = document.getElementById('msg');
+        let body = document.getElementsByTagName('body')[0];
+        let table = document.createElement('table');
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+        table.setAttribute("border", "2");
+        //將內容物掛上table中
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        window.onload = function () {
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function () {
+                // readyState判斷XHR==4 表示完成下載操作
+                //  xhr.status 判斷是否成功回回傳的值
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    zipcodArray = JSON.parse(this.responseText);//this == onload 這個 funtion  responseText接住 onload = function 這個東西
+                    newArray = [];
+                    zipcodArray.forEach(item => {
+                        let ZipCode = ({ City: item.CityName, Districts: []}); //說明容器中的內容物為何
+                        item.AreaList.forEach((item) => {
+                            ZipCode.Districts.push({ Districts: item.AreaName, Zip: item.ZipCode });
+                        })
+                        newArray.push(ZipCode);
+                    });
+
+                    //引用templateTitle這方法
+                    addThead(templateTitle); //templateTitle -> 由於是創立新的矩陣 因此使用上需要新的檔案
+                   
+
+                   //引進addbody這方法
+                    newArray.forEach((item) => {
+                        addTbody(Object.values(item))
+                    });
+
+                }
+                else {
+                    msg.textContent = '發生錯誤，HTTP response代碼：' + xhr.status;
+                }
+            }
+            xhr.open('GET', 'http://127.0.0.1:5500/CityCountyData.json');//(1) open =>先準備好事物
+            xhr.send();//(2)send出 方法
+            body.appendChild(table);
+            // console.log(table);
+        }
+        //規劃畫面要長怎樣 body>table>table內放資料
+        //body > table > thead.tbody > th.td
+        //找爸爸 -> document.getelementByTag('body')[0];
+        //Create -> document.creatElement();
+
+
+        function addThead() {
+            let templateTitle = document.getElementById('templateTitle');
+            let cloneContent = templateTitle.content.cloneNode(true);   //設立節點 避免資料被洗掉
+            thead.appendChild(cloneContent);
+        }
+
+        function addTbody(rowArray) {
+            let templateBody = document.getElementById('templateBody');
+
+            for (let i = 0; i < rowArray[1].length; i++) {
+                let cloneContent = templateBody.content.cloneNode(true);
+                let tds = cloneContent.querySelectorAll('td');
+                tds[0].textContent = rowArray[0];
+                tds[1].textContent = rowArray[1][i].Districts;
+                tds[2].textContent = rowArray[1][i].Zip;
+                tbody.appendChild(cloneContent);
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
