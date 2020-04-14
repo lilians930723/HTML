@@ -30,13 +30,18 @@
         #zero{
             width: 205px;
         }
-        #ac_btn{
-            width: 205px;
-        }
     </style>
 </head>
-<!--  -->
-<body><input type="bttton" value="%" onclick="numbtn('%')"></td>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="6"><input type="text" value="0" id="box" ></td>
+        </tr>
+        <tr>
+            <td><input type="bttton" value="AC" onclick="Ac_btn()"></td>
+            <td><input type="bttton" value="+/-" onclick="btn('+/-')"></td>
+            <td><input type="bttton" value="%" onclick="numbtn('%')"></td>
             <td><input type="bttton" value="/" onclick="numbtn('/')"></td>
         </tr>
         <tr>
@@ -68,7 +73,7 @@
     <script>
         var temp; //暫存運算數
         var strOper;//暫存符號
-//
+
 
 
         function numbtn(str) {
