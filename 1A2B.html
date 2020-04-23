@@ -31,10 +31,15 @@
         }
         .button{
             width: 80px;
+            height: 60px;
             margin-left: 3px;
             border-radius: 3px;
             background-color: #000;
             color: #fff;
+            
+        }
+        #enter{
+           
         }
     </style>
 </head>
@@ -53,7 +58,7 @@
                     </div>
                     <input type="text" class="form-control" id="inputguess" placeholder="請輸入四個不同的數字" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                      <button class="button" onclick ="Guess()">輸入</button>
+                      <button style=" font-family: 微軟正黑體;" class="button" onclick ="Guess()" >輸入</button>
                     </div>
                 </div>
                 <div class="text">
@@ -121,7 +126,7 @@
             }
             let distinctresult = InputGuessArray.filter(distinct);
             if(distinctresult.length < 4){
-                alert('要輸入四碼啦');
+                alert('母湯！');
                 return;
             }
 
