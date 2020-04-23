@@ -1,0 +1,177 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>1A2B</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+        .container{
+            /* width: 100%; */
+            max-width: 800px;
+            background-color: #0000;
+            border: 3px double #ffffff;
+        }
+        .Button{
+            height: 60px;
+            font-family: 微軟正黑體;
+        }
+        span{
+            margin-right: 10px;
+        }
+        .button{
+            width: 80px;
+            margin-left: 3px;
+            border-radius: 3px;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="Button d-flex my-3">
+                    <button class="btn btn-outline-dark flex-grow-1" id="start" onclick="Start()">開始</button>
+                    <button class="button btn btn-outline-dark flex-grow-1" onclick="ReStart()">放棄重來</button>
+                    <button class="button btn btn-outline-dark flex-grow-1" onclick="ShowAnswer()">看答案</button>
+                </div>               
+                <div class="input-group my-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">猜答案</span>
+                    </div>
+                    <input type="text" class="form-control" id="inputguess" placeholder="請輸入四個不同的數字" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="button" onclick ="Guess()">輸入</button>
+                    </div>
+                </div>
+                <div class="text">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ul = document.createElement('ul');
+       
+        var button = document.getElementsByClassName('button');
+        for(let btn of button){
+            btn.setAttribute('disabled','disabled');
+        }
+
+        var AnswerArray = [];
+        var Answer = "";
+        var start = document.getElementById('start');
+        var pastRecord = document.getElementById('pastrecord');
+        function Start(){
+            for(let i = 0; i < 4 ; i++){
+                AnswerArray[i] = Math.floor((Math.random()*10));
+                for(let j = 0 ; j < i ; j++){
+                    while(AnswerArray[j] == AnswerArray[i]){
+                        j = 0;
+                        AnswerArray[i] = Math.floor((Math.random()*10));
+                    }
+                }
+                Answer += AnswerArray[i];
+            }
+           
+            for(let btn of button){
+                btn.removeAttribute('disabled');
+            }
+            start.setAttribute('disabled','disabled');
+            pastRecord.innerText = '';
+        }
+
+        function ReStart(){
+            alert('Answer is '+ Answer);
+            AnswerArray = [];
+            Answer = "";
+            ul.innerHTML = '';
+            inputGuess.value = '';
+            Start();
+        }
+
+        function ShowAnswer(){
+            alert('Answer is '+Answer);
+        }
+
+        var inputGuess = document.getElementById('inputguess');
+        function Guess(){
+            let CountofA = 0;
+            let CountofB = 0;
+
+            //輸入 矩陣
+            let AnswerArray = Array.from(Answer);
+            let InputGuessArray = Array.from(inputGuess.value);
+
+            //去除重複 判斷長度小於4
+            let distinct = (value, index, self) => {
+                return self.indexOf(value) === index;
+            }
+            let distinctresult = InputGuessArray.filter(distinct);
+            if(distinctresult.length < 4){
+                alert('要輸入四碼啦');
+                return;
+            }
+
+            //找出兩者的交集
+            let Result = AnswerArray.filter((e) => {
+                return InputGuessArray.indexOf(e) > -1
+            })
+            
+            //比對有多少個A
+            for(let i = 0 ; i < AnswerArray.length ; i++){
+                if(AnswerArray[i] == InputGuessArray[i]){
+                    CountofA++;
+                }
+            }
+
+            //交集長度-A 得出有多少個B
+            CountofB = Number(Result.length-CountofA);
+
+
+            
+            var li = document.createElement('li');
+            var span = document.createElement('span');
+            var span1 = document.createElement('span');
+            span.innerHTML = CountofA+'A'+CountofB+'B';
+            span1.innerHTML = inputGuess.value;
+            var div = document.getElementsByClassName('text')[0];
+
+            div.appendChild(ul);
+            ul.appendChild(li);
+            li.appendChild(span);
+            li.appendChild(span1);
+
+            if(CountofA == 4){
+                span.classList.add('bg-success','text-white');
+                alert('你棒棒答對了！');
+            }
+            else{
+                span.classList.add('bg-danger', 'text-white');
+            }
+            inputGuess.value = '';
+            // alert(CountofA+'A'+CountofB+'B');
+
+            
+        }
+        
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
